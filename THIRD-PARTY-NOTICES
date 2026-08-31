@@ -1,0 +1,144 @@
+Assay 试金 —— 第三方组件声明
+最后更新：2026-08-31
+
+本软件包含下列以开源许可分发的第三方组件。
+**各组件的许可条款优先适用于其自身**，Assay 的 LICENSE 不改变、
+也不试图限制你在那些许可下享有的权利。
+
+Electron 自带的 Chromium / Node.js 等上游声明随安装包一起分发，
+见安装目录下的 LICENSE.electron.txt 与 LICENSES.chromium.html。
+
+本清单由构建时的实际依赖树生成（license-checker --production），
+不是手写的 —— 手写的清单迟早与真实依赖分家。
+
+共 32 个组件：MIT 28、Apache-2.0 1、BSD-2-Clause 1、ISC 1、BSD-3-Clause 1
+
+========================================================================
+
+@babel/helper-string-parser@7.29.7
+    许可: MIT
+    来源: https://github.com/babel/babel
+
+@babel/helper-validator-identifier@7.29.7
+    许可: MIT
+    来源: https://github.com/babel/babel
+
+@babel/parser@7.29.8
+    许可: MIT
+    来源: https://github.com/babel/babel
+
+@babel/types@7.29.8
+    许可: MIT
+    来源: https://github.com/babel/babel
+
+@duckdb/node-api@1.5.5-r.4
+    许可: MIT
+    来源: https://github.com/duckdb/duckdb-node-neo
+
+@duckdb/node-bindings-linux-x64@1.5.5-r.4
+    许可: MIT
+    来源: https://github.com/duckdb/duckdb-node-neo
+
+@duckdb/node-bindings-win32-x64@1.5.5-r.4
+    许可: MIT
+    来源: https://github.com/duckdb/duckdb-node-neo
+
+@duckdb/node-bindings@1.5.5-r.4
+    许可: MIT
+    来源: https://github.com/duckdb/duckdb-node-neo
+
+@jridgewell/sourcemap-codec@1.5.5
+    许可: MIT
+    来源: https://github.com/jridgewell/sourcemaps
+
+@vue/compiler-core@3.5.41
+    许可: MIT
+    来源: https://github.com/vuejs/core
+
+@vue/compiler-dom@3.5.41
+    许可: MIT
+    来源: https://github.com/vuejs/core
+
+@vue/compiler-sfc@3.5.41
+    许可: MIT
+    来源: https://github.com/vuejs/core
+
+@vue/compiler-ssr@3.5.41
+    许可: MIT
+    来源: https://github.com/vuejs/core
+
+@vue/devtools-api@6.6.4
+    许可: MIT
+    来源: https://github.com/vuejs/vue-devtools
+
+@vue/reactivity@3.5.41
+    许可: MIT
+    来源: https://github.com/vuejs/core
+
+@vue/runtime-core@3.5.41
+    许可: MIT
+    来源: https://github.com/vuejs/core
+
+@vue/runtime-dom@3.5.41
+    许可: MIT
+    来源: https://github.com/vuejs/core
+
+@vue/server-renderer@3.5.41
+    许可: MIT
+    来源: https://github.com/vuejs/core
+
+@vue/shared@3.5.41
+    许可: MIT
+    来源: https://github.com/vuejs/core
+
+csstype@3.2.3
+    许可: MIT
+    来源: https://github.com/frenic/csstype
+
+detect-libc@2.1.2
+    许可: Apache-2.0
+    来源: https://github.com/lovell/detect-libc
+
+electron@44.0.0
+    许可: MIT
+    来源: https://github.com/electron/electron
+
+entities@7.0.1
+    许可: BSD-2-Clause
+    来源: https://github.com/fb55/entities
+
+estree-walker@2.0.2
+    许可: MIT
+    来源: https://github.com/Rich-Harris/estree-walker
+
+js-md5@0.8.3
+    许可: MIT
+    来源: https://github.com/emn178/js-md5
+
+magic-string@0.30.21
+    许可: MIT
+    来源: https://github.com/Rich-Harris/magic-string
+
+nanoid@3.3.18
+    许可: MIT
+    来源: https://github.com/ai/nanoid
+
+picocolors@1.1.1
+    许可: ISC
+    来源: https://github.com/alexeyraspopov/picocolors
+
+postcss@8.5.26
+    许可: MIT
+    来源: https://github.com/postcss/postcss
+
+source-map-js@1.2.1
+    许可: BSD-3-Clause
+    来源: https://github.com/7rulnik/source-map-js
+
+vue-router@4.6.4
+    许可: MIT
+    来源: https://github.com/vuejs/router
+
+vue@3.5.41
+    许可: MIT
+    来源: https://github.com/vuejs/core
