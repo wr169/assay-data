@@ -41,7 +41,7 @@ SEC 申报是美国政府作品，属公有领域（17 U.S.C. §105），**可�
 
 | 平台 | 文件 | 大小 |
 |---|---|---|
-| Windows | `Assay Setup 0.2.0.exe` | 137 MB |
+| Windows | `Assay.Setup.0.2.0.exe` | 137 MB |
 | Linux（通用） | `Assay-0.2.0.AppImage` | 168 MB |
 | Linux（Debian/Ubuntu） | `assay-desktop_0.2.0_amd64.deb` | 135 MB |
 
@@ -55,7 +55,7 @@ SEC 申报是美国政府作品，属公有领域（17 U.S.C. §105），**可�
 
 | 文件 | SHA-256 |
 |---|---|
-| `Assay Setup 0.2.0.exe` | `03b16d549f1682bfb35885461394a69d61d9daf97a4c29d41dc4a16a2187cd22` |
+| `Assay.Setup.0.2.0.exe` | `03b16d549f1682bfb35885461394a69d61d9daf97a4c29d41dc4a16a2187cd22` |
 | `Assay-0.2.0.AppImage` | `88a9d1572561a59ce1dcb71acce592863b9b89b6051068bdbdf8f4c8657efe0e` |
 | `assay-desktop_0.2.0_amd64.deb` | `b789cb18b74aace14858b59c5242d329c5ef952282ea8e08c171217eb86c894b` |
 
