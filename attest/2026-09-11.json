@@ -1,0 +1,130 @@
+{
+  "format": "assay-attest/1",
+  "as_of_date": "2026-09-11",
+  "generated_at": "2026-09-11T11:04:38.196083953",
+  "canonical": "每列 CAST AS VARCHAR；NULL 写作 \\N；\\ TAB LF CR 分别转义为 \\\\ \\t \\n \\r；列以 TAB 连接、行以 LF 连接、无尾随 LF；sha256 取 UTF-8 字节。",
+  "prev": null,
+  "datasets": {
+    "forecast_live": {
+      "sql": "SELECT CAST(forecast_id AS VARCHAR) AS forecast_id, CAST(as_of_date AS VARCHAR) AS as_of_date, CAST(company_id AS VARCHAR) AS company_id, CAST(ticker AS VARCHAR) AS ticker, CAST(horizon_days AS VARCHAR) AS horizon_days, CAST(model AS VARCHAR) AS model, CAST(p_beat AS VARCHAR) AS p_beat, CAST(basis AS VARCHAR) AS basis, CAST(source AS VARCHAR) AS source, CAST(submitted_by AS VARCHAR) AS submitted_by FROM dx_forecast WHERE source = 'LIVE' AND as_of_date = CAST(? AS DATE) ORDER BY forecast_id",
+      "columns": [
+        "forecast_id",
+        "as_of_date",
+        "company_id",
+        "ticker",
+        "horizon_days",
+        "model",
+        "p_beat",
+        "basis",
+        "source",
+        "submitted_by"
+      ],
+      "rows": [],
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "climatology": {
+      "sql": "SELECT CAST(as_of_date AS VARCHAR) AS as_of_date, CAST(horizon_days AS VARCHAR) AS horizon_days, CAST(p_beat AS VARCHAR) AS p_beat, CAST(prior_n AS VARCHAR) AS prior_n, CAST(computed_at AS VARCHAR) AS computed_at FROM dx_forecast_climatology WHERE as_of_date = CAST(? AS DATE) ORDER BY horizon_days",
+      "columns": [
+        "as_of_date",
+        "horizon_days",
+        "p_beat",
+        "prior_n",
+        "computed_at"
+      ],
+      "rows": [
+        "2026-09-11\t21\t0.4401526468409887\t79661\t2026-09-11 03:26:42.676774",
+        "2026-09-11\t5\t0.4403469354454054\t79669\t2026-09-11 03:26:40.783625",
+        "2026-09-11\t63\t0.4335009942683355\t76941\t2026-09-11 03:26:43.898811"
+      ],
+      "sha256": "7bb6e1e2bb731ebc6de3f5c5862a528a892ff4f87fd2aed92c109ea08694bbff"
+    },
+    "forecast_live_cumulative": {
+      "sql": "SELECT CAST(forecast_id AS VARCHAR) AS forecast_id, CAST(as_of_date AS VARCHAR) AS as_of_date, CAST(company_id AS VARCHAR) AS company_id, CAST(ticker AS VARCHAR) AS ticker, CAST(horizon_days AS VARCHAR) AS horizon_days, CAST(model AS VARCHAR) AS model, CAST(p_beat AS VARCHAR) AS p_beat, CAST(basis AS VARCHAR) AS basis, CAST(source AS VARCHAR) AS source, CAST(submitted_by AS VARCHAR) AS submitted_by FROM dx_forecast WHERE source = 'LIVE' AND as_of_date <= CAST(? AS DATE) ORDER BY forecast_id",
+      "columns": [
+        "forecast_id",
+        "as_of_date",
+        "company_id",
+        "ticker",
+        "horizon_days",
+        "model",
+        "p_beat",
+        "basis",
+        "source",
+        "submitted_by"
+      ],
+      "row_count": 108,
+      "sha256": "67fb90f230de7d8726ea296710b76f9509fb461b0afba6d20482cecef3b38c6b"
+    },
+    "market_bet": {
+      "sql": "SELECT CAST(forecast_id AS VARCHAR) AS forecast_id, CAST(uid AS VARCHAR) AS uid, CAST(side AS VARCHAR) AS side, CAST(price AS VARCHAR) AS price, CAST(stake AS VARCHAR) AS stake, CAST(to_win AS VARCHAR) AS to_win, CAST(settled_at AS VARCHAR) AS settled_at, CAST(payout AS VARCHAR) AS payout, CAST(bet_date AS VARCHAR) AS bet_date FROM dx_market_position WHERE bet_date = CAST(? AS DATE) ORDER BY forecast_id",
+      "columns": [
+        "forecast_id",
+        "uid",
+        "side",
+        "price",
+        "stake",
+        "to_win",
+        "settled_at",
+        "payout",
+        "bet_date"
+      ],
+      "rows": [],
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "market_settle": {
+      "sql": "SELECT CAST(forecast_id AS VARCHAR) AS forecast_id, CAST(uid AS VARCHAR) AS uid, CAST(side AS VARCHAR) AS side, CAST(price AS VARCHAR) AS price, CAST(stake AS VARCHAR) AS stake, CAST(to_win AS VARCHAR) AS to_win, CAST(settled_at AS VARCHAR) AS settled_at, CAST(payout AS VARCHAR) AS payout, CAST(bet_date AS VARCHAR) AS bet_date FROM dx_market_position WHERE CAST(settled_at AS DATE) = CAST(? AS DATE) ORDER BY forecast_id",
+      "columns": [
+        "forecast_id",
+        "uid",
+        "side",
+        "price",
+        "stake",
+        "to_win",
+        "settled_at",
+        "payout",
+        "bet_date"
+      ],
+      "rows": [],
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "market_stake_cumulative": {
+      "sql": "SELECT CAST(forecast_id AS VARCHAR) AS forecast_id, CAST(uid AS VARCHAR) AS uid, CAST(side AS VARCHAR) AS side, CAST(price AS VARCHAR) AS price, CAST(stake AS VARCHAR) AS stake, CAST(to_win AS VARCHAR) AS to_win, CAST(bet_date AS VARCHAR) AS bet_date FROM dx_market_position WHERE bet_date <= CAST(? AS DATE) ORDER BY forecast_id",
+      "columns": [
+        "forecast_id",
+        "uid",
+        "side",
+        "price",
+        "stake",
+        "to_win",
+        "bet_date"
+      ],
+      "row_count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "daily_snapshot": {
+      "sql": "SELECT CAST(as_of_date AS VARCHAR) AS as_of_date, CAST(ticker AS VARCHAR) AS ticker, CAST(company_name AS VARCHAR) AS company_name, CAST(sector AS VARCHAR) AS sector, CAST(fy AS VARCHAR) AS fy, CAST(fq AS VARCHAR) AS fq, CAST(quality AS VARCHAR) AS quality, CAST(fresh_alert AS VARCHAR) AS fresh_alert, CAST(verdict_code AS VARCHAR) AS verdict_code, CAST(verdict_text AS VARCHAR) AS verdict_text, CAST(dx_status AS VARCHAR) AS dx_status, CAST(new_alert_count AS VARCHAR) AS new_alert_count, CAST(ongoing_alert_count AS VARCHAR) AS ongoing_alert_count, CAST(watch_count AS VARCHAR) AS watch_count, CAST(business_line AS VARCHAR) AS business_line, CAST(event_line AS VARCHAR) AS event_line, CAST(attribution_line AS VARCHAR) AS attribution_line, CAST(market_line AS VARCHAR) AS market_line FROM dx_daily_snapshot WHERE as_of_date = CAST(? AS DATE) ORDER BY ticker",
+      "columns": [
+        "as_of_date",
+        "ticker",
+        "company_name",
+        "sector",
+        "fy",
+        "fq",
+        "quality",
+        "fresh_alert",
+        "verdict_code",
+        "verdict_text",
+        "dx_status",
+        "new_alert_count",
+        "ongoing_alert_count",
+        "watch_count",
+        "business_line",
+        "event_line",
+        "attribution_line",
+        "market_line"
+      ],
+      "row_count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  }
+}
