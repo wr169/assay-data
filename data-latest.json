@@ -1,7 +1,7 @@
 {
-    "url":  "https://github.com/wr169/assay-data/releases/download/data-2026-10-05/assay-public-2026-10-05.zip",
-    "sha256":  "58eb052d75c570430c19240b1c124c4a044955f11928c6c8597f6fa7d48c13bb",
-    "version":  "2026-10-05",
-    "bytes":  26514121,
-    "file":  "assay-public-2026-10-05.zip"
+    "url":  "https://github.com/wr169/assay-data/releases/download/data-2026-10-12/assay-public-2026-10-12.zip",
+    "sha256":  "c9f6b21925c2520dda5c7303f0daeb6c48ffec234a29c859608c02a902610832",
+    "version":  "2026-10-12",
+    "bytes":  26690672,
+    "file":  "assay-public-2026-10-12.zip"
 }
