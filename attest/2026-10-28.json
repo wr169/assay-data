@@ -1,0 +1,171 @@
+{
+  "format": "assay-attest/1",
+  "as_of_date": "2026-10-28",
+  "generated_at": "2026-10-28T18:30:05.179744494",
+  "canonical": "每列 CAST AS VARCHAR；NULL 写作 \\N；\\ TAB LF CR 分别转义为 \\\\ \\t \\n \\r；列以 TAB 连接、行以 LF 连接、无尾随 LF；sha256 取 UTF-8 字节。",
+  "prev": {
+    "sha256": "e441e6d11b8dba3b567a01e562276f1d3204a94f027fd92f6ad4d62a74da3f23",
+    "file": "2026-10-27.json"
+  },
+  "datasets": {
+    "forecast_live": {
+      "sql": "SELECT CAST(forecast_id AS VARCHAR) AS forecast_id, CAST(as_of_date AS VARCHAR) AS as_of_date, CAST(company_id AS VARCHAR) AS company_id, CAST(ticker AS VARCHAR) AS ticker, CAST(horizon_days AS VARCHAR) AS horizon_days, CAST(model AS VARCHAR) AS model, CAST(p_beat AS VARCHAR) AS p_beat, CAST(basis AS VARCHAR) AS basis, CAST(source AS VARCHAR) AS source, CAST(submitted_by AS VARCHAR) AS submitted_by FROM dx_forecast WHERE source = 'LIVE' AND as_of_date = CAST(? AS DATE) ORDER BY forecast_id",
+      "columns": [
+        "forecast_id",
+        "as_of_date",
+        "company_id",
+        "ticker",
+        "horizon_days",
+        "model",
+        "p_beat",
+        "basis",
+        "source",
+        "submitted_by"
+      ],
+      "rows": [],
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "climatology": {
+      "sql": "SELECT CAST(as_of_date AS VARCHAR) AS as_of_date, CAST(horizon_days AS VARCHAR) AS horizon_days, CAST(p_beat AS VARCHAR) AS p_beat, CAST(prior_n AS VARCHAR) AS prior_n, CAST(computed_at AS VARCHAR) AS computed_at FROM dx_forecast_climatology WHERE as_of_date = CAST(? AS DATE) ORDER BY horizon_days",
+      "columns": [
+        "as_of_date",
+        "horizon_days",
+        "p_beat",
+        "prior_n",
+        "computed_at"
+      ],
+      "rows": [
+        "2026-10-28\t21\t0.3814766359754141\t81022\t2026-10-28 18:30:03.109704",
+        "2026-10-28\t5\t0.43744462918239296\t82399\t2026-10-28 18:30:02.913271",
+        "2026-10-28\t63\t0.41907462762831815\t78282\t2026-10-28 18:30:03.314996"
+      ],
+      "sha256": "d611b66358c9b2a659142e44e2b3abe8312fdbc58ad19a5a16e11e92302b6ba8"
+    },
+    "forecast_live_cumulative": {
+      "sql": "SELECT CAST(forecast_id AS VARCHAR) AS forecast_id, CAST(as_of_date AS VARCHAR) AS as_of_date, CAST(company_id AS VARCHAR) AS company_id, CAST(ticker AS VARCHAR) AS ticker, CAST(horizon_days AS VARCHAR) AS horizon_days, CAST(model AS VARCHAR) AS model, CAST(p_beat AS VARCHAR) AS p_beat, CAST(basis AS VARCHAR) AS basis, CAST(source AS VARCHAR) AS source, CAST(submitted_by AS VARCHAR) AS submitted_by FROM dx_forecast WHERE source = 'LIVE' AND as_of_date <= CAST(? AS DATE) ORDER BY forecast_id",
+      "columns": [
+        "forecast_id",
+        "as_of_date",
+        "company_id",
+        "ticker",
+        "horizon_days",
+        "model",
+        "p_beat",
+        "basis",
+        "source",
+        "submitted_by"
+      ],
+      "row_count": 112,
+      "sha256": "e4c551f1b65d59b9f9f5f38d16dd25ecb44265653fa740fd77b986684a924ae3"
+    },
+    "forecast_dist": {
+      "sql": "SELECT CAST(forecast_id AS VARCHAR) AS forecast_id, CAST(q05_bps AS VARCHAR) AS q05_bps, CAST(q25_bps AS VARCHAR) AS q25_bps, CAST(q50_bps AS VARCHAR) AS q50_bps, CAST(q75_bps AS VARCHAR) AS q75_bps, CAST(q95_bps AS VARCHAR) AS q95_bps FROM dx_forecast WHERE source = 'LIVE' AND as_of_date = CAST(? AS DATE) AND q50_bps IS NOT NULL ORDER BY forecast_id",
+      "columns": [
+        "forecast_id",
+        "q05_bps",
+        "q25_bps",
+        "q50_bps",
+        "q75_bps",
+        "q95_bps"
+      ],
+      "rows": [],
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "climatology_dist": {
+      "sql": "SELECT CAST(as_of_date AS VARCHAR) AS as_of_date, CAST(horizon_days AS VARCHAR) AS horizon_days, CAST(q05_bps AS VARCHAR) AS q05_bps, CAST(q25_bps AS VARCHAR) AS q25_bps, CAST(q50_bps AS VARCHAR) AS q50_bps, CAST(q75_bps AS VARCHAR) AS q75_bps, CAST(q95_bps AS VARCHAR) AS q95_bps FROM dx_forecast_climatology WHERE as_of_date = CAST(? AS DATE) AND q50_bps IS NOT NULL ORDER BY horizon_days",
+      "columns": [
+        "as_of_date",
+        "horizon_days",
+        "q05_bps",
+        "q25_bps",
+        "q50_bps",
+        "q75_bps",
+        "q95_bps"
+      ],
+      "rows": [
+        "2026-10-28\t21\t-2600\t-988\t-285\t368\t2042",
+        "2026-10-28\t5\t-1414\t-406\t-65\t232\t1076",
+        "2026-10-28\t63\t-4346\t-1567\t-329\t804\t3754"
+      ],
+      "sha256": "edb125e9ed3becfed2ba107f9468d1ac9df69acf5546f0dbf71dbf4a5cdcb7d0"
+    },
+    "market_bet": {
+      "sql": "SELECT CAST(forecast_id AS VARCHAR) AS forecast_id, CAST(uid AS VARCHAR) AS uid, CAST(side AS VARCHAR) AS side, CAST(price AS VARCHAR) AS price, CAST(stake AS VARCHAR) AS stake, CAST(to_win AS VARCHAR) AS to_win, CAST(settled_at AS VARCHAR) AS settled_at, CAST(payout AS VARCHAR) AS payout, CAST(bet_date AS VARCHAR) AS bet_date FROM dx_market_position WHERE bet_date = CAST(? AS DATE) ORDER BY forecast_id",
+      "columns": [
+        "forecast_id",
+        "uid",
+        "side",
+        "price",
+        "stake",
+        "to_win",
+        "settled_at",
+        "payout",
+        "bet_date"
+      ],
+      "rows": [],
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "market_settle": {
+      "sql": "SELECT CAST(forecast_id AS VARCHAR) AS forecast_id, CAST(uid AS VARCHAR) AS uid, CAST(side AS VARCHAR) AS side, CAST(price AS VARCHAR) AS price, CAST(stake AS VARCHAR) AS stake, CAST(to_win AS VARCHAR) AS to_win, CAST(settled_at AS VARCHAR) AS settled_at, CAST(payout AS VARCHAR) AS payout, CAST(bet_date AS VARCHAR) AS bet_date FROM dx_market_position WHERE CAST(settled_at AS DATE) = CAST(? AS DATE) ORDER BY forecast_id",
+      "columns": [
+        "forecast_id",
+        "uid",
+        "side",
+        "price",
+        "stake",
+        "to_win",
+        "settled_at",
+        "payout",
+        "bet_date"
+      ],
+      "rows": [],
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "market_stake_cumulative": {
+      "sql": "SELECT CAST(forecast_id AS VARCHAR) AS forecast_id, CAST(uid AS VARCHAR) AS uid, CAST(side AS VARCHAR) AS side, CAST(price AS VARCHAR) AS price, CAST(stake AS VARCHAR) AS stake, CAST(to_win AS VARCHAR) AS to_win, CAST(bet_date AS VARCHAR) AS bet_date FROM dx_market_position WHERE bet_date <= CAST(? AS DATE) ORDER BY forecast_id",
+      "columns": [
+        "forecast_id",
+        "uid",
+        "side",
+        "price",
+        "stake",
+        "to_win",
+        "bet_date"
+      ],
+      "row_count": 2,
+      "sha256": "652d7f827475c1804060f78e373c3702bcdac68f7fb898395c7e70d127f2a631"
+    },
+    "daily_snapshot": {
+      "sql": "SELECT CAST(as_of_date AS VARCHAR) AS as_of_date, CAST(ticker AS VARCHAR) AS ticker, CAST(company_name AS VARCHAR) AS company_name, CAST(sector AS VARCHAR) AS sector, CAST(fy AS VARCHAR) AS fy, CAST(fq AS VARCHAR) AS fq, CAST(quality AS VARCHAR) AS quality, CAST(fresh_alert AS VARCHAR) AS fresh_alert, CAST(verdict_code AS VARCHAR) AS verdict_code, CAST(verdict_text AS VARCHAR) AS verdict_text, CAST(dx_status AS VARCHAR) AS dx_status, CAST(new_alert_count AS VARCHAR) AS new_alert_count, CAST(ongoing_alert_count AS VARCHAR) AS ongoing_alert_count, CAST(watch_count AS VARCHAR) AS watch_count, CAST(business_line AS VARCHAR) AS business_line, CAST(event_line AS VARCHAR) AS event_line, CAST(attribution_line AS VARCHAR) AS attribution_line, CAST(market_line AS VARCHAR) AS market_line FROM dx_daily_snapshot WHERE as_of_date = CAST(? AS DATE) ORDER BY ticker",
+      "columns": [
+        "as_of_date",
+        "ticker",
+        "company_name",
+        "sector",
+        "fy",
+        "fq",
+        "quality",
+        "fresh_alert",
+        "verdict_code",
+        "verdict_text",
+        "dx_status",
+        "new_alert_count",
+        "ongoing_alert_count",
+        "watch_count",
+        "business_line",
+        "event_line",
+        "attribution_line",
+        "market_line"
+      ],
+      "row_count": 646,
+      "sha256": "b8b3adb963414a1fd098936db88d534b647d29a345859b23b86280eb9e7a7422"
+    }
+  },
+  "trial_registry": {
+    "tested": 27,
+    "total": 27,
+    "effective_t": 3.11,
+    "bonferroni_t": 3.11,
+    "sha256": "aa5eb2bcfac025e4c51b9859b85137eb2b4f8c5bb9d262aab9be063c207902e3"
+  }
+}
